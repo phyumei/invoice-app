@@ -16,20 +16,20 @@
         </div>
       </header>
 
-      <section class="">
+      <section>
         <div class="container mb-5">
-          <form action="" class="">
+          <form id="createRecordForm" class="">
             <div
               class="grid grid-cols-4 gap-3 rounded-lg border bg-blue-50 p-5"
             >
               <div class="col-span-2">
                 <label
-                  for="countries"
                   class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                   >Select a product</label
                 >
                 <select
                   id="productSelect"
+                  name="product-select"
                   class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 >
                   <option selected>Choose a product</option>
@@ -44,7 +44,8 @@
                   >
                   <input
                     type="text"
-                    id="first_name"
+                    id="quantity"
+                    name="quantity"
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                     placeholder="4"
                     required
@@ -53,7 +54,7 @@
               </div>
               <div class="col-span-1">
                 <button
-                  type="button"
+                  type="submit"
                   class="h-full w-full rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
                   Add Record
@@ -315,7 +316,7 @@
       <template id="productCardTemplate">
         <div class="product-card flex justify-between rounded-lg border p-3">
           <h3 class="product-name">Apple</h3>
-          <p class="product-price">500 MMK</p>
+          <p><span class="product-price"></span> MMK</p>
         </div>
       </template>
     </main>

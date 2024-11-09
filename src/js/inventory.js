@@ -18,7 +18,12 @@ export const addNewProductBtnHandler = () => {
       newProductPrice.valueAsNumber,
     ),
   );
-  productSelect.append(new Option(newProductName.value, createId));
+  productSelect.append(
+    new Option(
+      `${newProductName.value} - ${newProductPrice.valueAsNumber}`,
+      createId,
+    ),
+  );
 
   products.push({
     id: createId,
@@ -28,6 +33,13 @@ export const addNewProductBtnHandler = () => {
 
   newProductName.value = null;
   newProductPrice.value = null;
+};
+
+export const productRender = (products) => {
+  products.forEach(({ id, name, price }) => {
+    productList.append(createProductCard(id, name, price));
+    productSelect.append(new Option(`${name} - ${price}`, id));
+  });
 };
 
 export const createProductCard = (id, name, price) => {

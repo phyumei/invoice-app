@@ -10,3 +10,4 @@ export const productCardTemplate = document.querySelector(
   "#productCardTemplate",
 );
 export const productSelect = document.querySelector("#productSelect");
+export const createRecordForm = document.querySelector("#createRecordForm");
