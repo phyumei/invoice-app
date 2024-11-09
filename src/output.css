@@ -2473,6 +2473,21 @@ input:checked + .toggle-bg{
   height:1.5rem
 }
 
+.size-3{
+  width:0.75rem;
+  height:0.75rem
+}
+
+.size-4{
+  width:1rem;
+  height:1rem
+}
+
+.size-2{
+  width:0.5rem;
+  height:0.5rem
+}
+
 .h-4{
   height:1rem
 }
@@ -2511,6 +2526,10 @@ input:checked + .toggle-bg{
 
 .w-full{
   width:100%
+}
+
+.w-5{
+  width:1.25rem
 }
 
 .flex-1{
@@ -2657,6 +2676,10 @@ input:checked + .toggle-bg{
   border-radius:0.5rem
 }
 
+.rounded{
+  border-radius:0.25rem
+}
+
 .rounded-e-lg{
   border-start-end-radius:0.5rem;
   border-end-end-radius:0.5rem
@@ -2780,6 +2803,10 @@ input:checked + .toggle-bg{
 
 .p-5{
   padding:1.25rem
+}
+
+.p-0\.5{
+  padding:0.125rem
 }
 
 .px-2{
@@ -2976,6 +3003,10 @@ input:checked + .toggle-bg{
 
 .ease-out{
   transition-timing-function:cubic-bezier(0, 0, 0.2, 1)
+}
+
+.last\:table-row:last-child{
+  display:table-row
 }
 
 .hover\:border-gray-300:hover{

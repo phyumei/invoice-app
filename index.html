@@ -18,7 +18,7 @@
 
       <section>
         <div class="container mb-5">
-          <form id="createRecordForm" class="">
+          <form id="createRecordForm">
             <div
               class="grid grid-cols-4 gap-3 rounded-lg border bg-blue-50 p-5"
             >
@@ -79,9 +79,9 @@
                   <th scope="col" class="px-6 py-3 text-end">Action</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="recordList">
                 <tr
-                  class="border-b bg-white dark:border-gray-700 dark:bg-gray-800"
+                  class="hidden border-b bg-white last:table-row dark:border-gray-700 dark:bg-gray-800"
                 >
                   <th
                     scope="row"
@@ -90,86 +90,6 @@
                   >
                     There is no record yet
                   </th>
-                </tr>
-                <tr
-                  class="border-b bg-white dark:border-gray-700 dark:bg-gray-800"
-                >
-                  <th
-                    scope="row"
-                    class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
-                  >
-                    Apple
-                  </th>
-                  <td class="px-6 py-4 text-end">500</td>
-                  <td class="px-6 py-4 text-end">3</td>
-                  <td class="px-6 py-4 text-end">1500</td>
-                  <td class="px-6 py-4 text-end">
-                    <a
-                      href="#"
-                      class="font-medium text-blue-600 hover:underline dark:text-blue-500"
-                      >Remove</a
-                    >
-                  </td>
-                </tr>
-                <tr
-                  class="border-b bg-white dark:border-gray-700 dark:bg-gray-800"
-                >
-                  <th
-                    scope="row"
-                    class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
-                  >
-                    Apple
-                  </th>
-                  <td class="px-6 py-4 text-end">500</td>
-                  <td class="px-6 py-4 text-end">3</td>
-                  <td class="px-6 py-4 text-end">1500</td>
-                  <td class="px-6 py-4 text-end">
-                    <a
-                      href="#"
-                      class="font-medium text-blue-600 hover:underline dark:text-blue-500"
-                      >Remove</a
-                    >
-                  </td>
-                </tr>
-                <tr
-                  class="border-b bg-white dark:border-gray-700 dark:bg-gray-800"
-                >
-                  <th
-                    scope="row"
-                    class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
-                  >
-                    Apple
-                  </th>
-                  <td class="px-6 py-4 text-end">500</td>
-                  <td class="px-6 py-4 text-end">3</td>
-                  <td class="px-6 py-4 text-end">1500</td>
-                  <td class="px-6 py-4 text-end">
-                    <a
-                      href="#"
-                      class="font-medium text-blue-600 hover:underline dark:text-blue-500"
-                      >Remove</a
-                    >
-                  </td>
-                </tr>
-                <tr
-                  class="border-b bg-white dark:border-gray-700 dark:bg-gray-800"
-                >
-                  <th
-                    scope="row"
-                    class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
-                  >
-                    Apple
-                  </th>
-                  <td class="px-6 py-4 text-end">500</td>
-                  <td class="px-6 py-4 text-end">3</td>
-                  <td class="px-6 py-4 text-end">1500</td>
-                  <td class="px-6 py-4 text-end">
-                    <a
-                      href="#"
-                      class="font-medium text-blue-600 hover:underline dark:text-blue-500"
-                      >Remove</a
-                    >
-                  </td>
                 </tr>
               </tbody>
               <tfoot>
@@ -183,7 +103,7 @@
                   >
                     Total
                   </th>
-                  <td class="px-6 py-4 text-end">1500</td>
+                  <td id="recordTotal" class="px-6 py-4 text-end">0</td>
                 </tr>
                 <tr
                   class="border-b bg-white dark:border-gray-700 dark:bg-gray-800"
@@ -195,7 +115,7 @@
                   >
                     Tax
                   </th>
-                  <td class="px-6 py-4 text-end">1500</td>
+                  <td id="recordTax" class="px-6 py-4 text-end">0</td>
                 </tr>
                 <tr
                   class="border-b bg-white dark:border-gray-700 dark:bg-gray-800"
@@ -207,7 +127,7 @@
                   >
                     Net Total
                   </th>
-                  <td class="px-6 py-4 text-end">1500</td>
+                  <td id="recordNetTotal" class="px-6 py-4 text-end">0</td>
                 </tr>
               </tfoot>
             </table>
@@ -318,6 +238,63 @@
           <h3 class="product-name">Apple</h3>
           <p><span class="product-price"></span> MMK</p>
         </div>
+      </template>
+
+      <template id="recordRowTemplate">
+        <tr
+          class="record-row border-b bg-white dark:border-gray-700 dark:bg-gray-800"
+        >
+          <th
+            scope="row"
+            class="record-product-name whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+          >
+            Apple
+          </th>
+          <td class="record-product-price px-6 py-4 text-end">500</td>
+          <td class="px-6 py-4 text-end">
+            <button class="quantity-sub rounded-full border p-0.5">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="pointer-events-none size-3"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M5 12h14"
+                />
+              </svg>
+            </button>
+            <span class="record-quantity inline-block w-5">0</span>
+            <button class="quantity-add rounded-full border p-0.5">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="pointer-events-none size-3"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 4.5v15m7.5-7.5h-15"
+                />
+              </svg>
+            </button>
+          </td>
+          <td class="record-cost px-6 py-4 text-end">1500</td>
+          <td class="px-6 py-4 text-end">
+            <button
+              class="record-remove font-medium text-blue-600 hover:underline dark:text-blue-500"
+            >
+              Remove
+            </button>
+          </td>
+        </tr>
       </template>
     </main>
     <script type="module" src="./main.js"></script>
