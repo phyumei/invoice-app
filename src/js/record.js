@@ -18,8 +18,28 @@ export const createRecordFormHandler = (event) => {
     ({ id }) => id == formData.get("product-select"),
   );
 
-  recordList.append(createRecordRow(currentProduct, formData.get("quantity")));
+  const doesRecordExist = document.querySelector(
+    `[product-id='${currentProduct.id}']`,
+  );
 
+  if (doesRecordExist == null) {
+    recordList.append(
+      createRecordRow(currentProduct, formData.get("quantity")),
+    );
+  } else {
+   Swal.fire({
+    title: `Are you sure you want to add quantity to ${currentProduct.name}?`,
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, add it!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      updateRecordQuantity(doesRecordExist.getAttribute("row-id"), parseInt(formData.get("quantity")))
+    }
+  });
   createRecordForm.reset();
 };
 
@@ -76,10 +96,33 @@ export const removeRecord = (rowId) => {
   });
 };
 
+export const updateRecordQuantity = (rowId, newQuantity) => {
+  const currentRecordRow = document.querySelector(`[row-id='${rowId}']`);
+
+  const recordProductPrice = currentRecordRow.querySelector(
+    ".record-product-price",
+  );
+  const recordQuantity = currentRecordRow.querySelector(".record-quantity");
+  const recordCost = currentRecordRow.querySelector(".record-cost");
+
+  if (newQuantity > 0 || recordQuantity.innerText > 1) {
+    recordQuantity.innerText = parseInt(recordQuantity.innerText) + newQuantity;
+
+    recordCost.innerText =
+      recordQuantity.innerText * recordProductPrice.innerText;
+  }
+};
+
 export const recordListHandler = (event) => {
   if (event.target.classList.contains("record-remove")) {
     const currentRecordRow = event.target.closest(".record-row");
     removeRecord(currentRecordRow.getAttribute("row-id"));
+  } else if (event.target.classList.contains("quantity-add")) {
+    const currentRecordRow = event.target.closest(".record-row");
+    updateRecordQuantity(currentRecordRow.getAttribute("row-id"), 1);
+  } else if (event.target.classList.contains("quantity-sub")) {
+    const currentRecordRow = event.target.closest(".record-row");
+    updateRecordQuantity(currentRecordRow.getAttribute("row-id"), -1);
   }
 };
 
