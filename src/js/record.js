@@ -27,20 +27,24 @@ export const createRecordFormHandler = (event) => {
       createRecordRow(currentProduct, formData.get("quantity")),
     );
   } else {
-   Swal.fire({
-    title: `Are you sure you want to add quantity to ${currentProduct.name}?`,
-    text: "You won't be able to revert this!",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, add it!",
-  }).then((result) => {
-    if (result.isConfirmed) {
-      updateRecordQuantity(doesRecordExist.getAttribute("row-id"), parseInt(formData.get("quantity")))
-    }
-  });
-  createRecordForm.reset();
+    Swal.fire({
+      title: `Are you sure you want to add quantity to ${currentProduct.name}?`,
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, add it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        updateRecordQuantity(
+          doesRecordExist.getAttribute("row-id"),
+          parseInt(formData.get("quantity")),
+        );
+      }
+    });
+    createRecordForm.reset();
+  }
 };
 
 export const createRecordRow = ({ id, name, price }, quantity) => {

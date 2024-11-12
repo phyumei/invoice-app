@@ -16,3 +16,4 @@ export const recordList = document.querySelector("#recordList");
 export const recordTotal = document.querySelector("#recordTotal");
 export const recordTax = document.querySelector("#recordTax");
 export const recordNetTotal = document.querySelector("#recordNetTotal");
+export const checkout = document.querySelector("#checkout");

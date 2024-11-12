@@ -17,7 +17,7 @@
       </header>
 
       <section>
-        <div class="container mb-5">
+        <div class="container mb-5 block print:hidden">
           <form id="createRecordForm">
             <div
               class="grid grid-cols-4 gap-3 rounded-lg border bg-blue-50 p-5"
@@ -76,7 +76,12 @@
                   <th scope="col" class="px-6 py-3 text-end">Price</th>
                   <th scope="col" class="px-6 py-3 text-end">Quantity</th>
                   <th scope="col" class="px-6 py-3 text-end">Cost</th>
-                  <th scope="col" class="px-6 py-3 text-end">Action</th>
+                  <th
+                    scope="col"
+                    class="table-cell px-6 py-3 text-end print:hidden"
+                  >
+                    Action
+                  </th>
                 </tr>
               </thead>
               <tbody id="recordList">
@@ -132,6 +137,7 @@
               </tfoot>
             </table>
           </div>
+          <p class="mt-5 hidden print:block">Thank you for your purchase.</p>
         </div>
       </section>
 
@@ -215,7 +221,7 @@
 
       <footer class="mt-auto">
         <div class="container py-2">
-          <div class="flex justify-end gap-3">
+          <div class="flex justify-end gap-3 print:hidden">
             <button
               id="manageInventoryBtn"
               type="button"
@@ -224,10 +230,11 @@
               Manage Inventory
             </button>
             <button
+              id="checkout"
               type="button"
               class="mb-2 me-2 rounded-full bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
-              Print
+              Checkout
             </button>
           </div>
         </div>
@@ -253,7 +260,7 @@
           <td class="record-product-price px-6 py-4 text-end">500</td>
           <td class="px-6 py-4 text-end">
             <button
-              class="quantity-sub hidden group-hover:inline-block rounded-full border border-blue-500 p-0.5 text-blue-500 active:scale-90"
+              class="quantity-sub hidden rounded-full border border-blue-500 p-0.5 text-blue-500 active:scale-90 group-hover:inline-block"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -272,7 +279,7 @@
             </button>
             <span class="record-quantity inline-block w-5">0</span>
             <button
-              class="quantity-add hidden group-hover:inline-block rounded-full border border-blue-500 p-0.5 text-blue-500 active:scale-90"
+              class="quantity-add hidden rounded-full border border-blue-500 p-0.5 text-blue-500 active:scale-90 group-hover:inline-block"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -291,7 +298,7 @@
             </button>
           </td>
           <td class="record-cost px-6 py-4 text-end">1500</td>
-          <td class="px-6 py-4 text-end">
+          <td class="table-cell px-6 py-4 text-end print:hidden">
             <button
               class="record-remove font-medium text-blue-600 hover:underline dark:text-blue-500"
             >

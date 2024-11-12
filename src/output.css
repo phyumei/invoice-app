@@ -2440,6 +2440,10 @@ input:checked + .toggle-bg{
   margin-top:auto
 }
 
+.mt-5{
+  margin-top:1.25rem
+}
+
 .block{
   display:block
 }
@@ -2460,6 +2464,10 @@ input:checked + .toggle-bg{
   display:table
 }
 
+.table-cell{
+  display:table-cell
+}
+
 .grid{
   display:grid
 }
@@ -2468,24 +2476,14 @@ input:checked + .toggle-bg{
   display:none
 }
 
-.size-6{
-  width:1.5rem;
-  height:1.5rem
-}
-
 .size-3{
   width:0.75rem;
   height:0.75rem
 }
 
-.size-4{
-  width:1rem;
-  height:1rem
-}
-
-.size-2{
-  width:0.5rem;
-  height:0.5rem
+.size-6{
+  width:1.5rem;
+  height:1.5rem
 }
 
 .h-4{
@@ -2516,6 +2514,10 @@ input:checked + .toggle-bg{
   width:1rem
 }
 
+.w-5{
+  width:1.25rem
+}
+
 .w-64{
   width:16rem
 }
@@ -2526,10 +2528,6 @@ input:checked + .toggle-bg{
 
 .w-full{
   width:100%
-}
-
-.w-5{
-  width:1.25rem
 }
 
 .flex-1{
@@ -2676,10 +2674,6 @@ input:checked + .toggle-bg{
   border-radius:0.5rem
 }
 
-.rounded{
-  border-radius:0.25rem
-}
-
 .rounded-e-lg{
   border-start-end-radius:0.5rem;
   border-end-end-radius:0.5rem
@@ -2710,6 +2704,11 @@ input:checked + .toggle-bg{
 
 .border-b{
   border-bottom-width:1px
+}
+
+.border-blue-500{
+  --tw-border-opacity:1;
+  border-color:rgb(63 131 248 / var(--tw-border-opacity))
 }
 
 .border-blue-600{
@@ -2785,6 +2784,10 @@ input:checked + .toggle-bg{
   background-color:rgb(255 255 255 / 0.5)
 }
 
+.p-0\.5{
+  padding:0.125rem
+}
+
 .p-1{
   padding:0.25rem
 }
@@ -2803,10 +2806,6 @@ input:checked + .toggle-bg{
 
 .p-5{
   padding:1.25rem
-}
-
-.p-0\.5{
-  padding:0.125rem
 }
 
 .px-2{
@@ -2907,6 +2906,11 @@ input:checked + .toggle-bg{
 .text-blue-400{
   --tw-text-opacity:1;
   color:rgb(118 169 250 / var(--tw-text-opacity))
+}
+
+.text-blue-500{
+  --tw-text-opacity:1;
+  color:rgb(63 131 248 / var(--tw-text-opacity))
 }
 
 .text-blue-600{
@@ -3095,6 +3099,16 @@ input:checked + .toggle-bg{
   --tw-ring-color:rgb(229 231 235 / var(--tw-ring-opacity))
 }
 
+.active\:scale-90:active{
+  --tw-scale-x:.9;
+  --tw-scale-y:.9;
+  transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+}
+
+.group:hover .group-hover\:inline-block{
+  display:inline-block
+}
+
 .dark\:border-blue-500:is(.dark *){
   --tw-border-opacity:1;
   border-color:rgb(63 131 248 / var(--tw-border-opacity))
@@ -3243,4 +3257,14 @@ input:checked + .toggle-bg{
 
 .rtl\:text-right:where([dir="rtl"], [dir="rtl"] *){
   text-align:right
+}
+
+@media print{
+  .print\:block{
+    display:block
+  }
+
+  .print\:hidden{
+    display:none
+  }
 }
