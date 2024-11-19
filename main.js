@@ -1,4 +1,4 @@
-import "./src/output.css";
+import "./index.css";
 import Invoice from "./src/js/invoice";
 
 const invoice = new Invoice();
